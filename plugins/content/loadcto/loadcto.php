@@ -92,11 +92,12 @@ class PlgContentLoadcto extends JPlugin
                 $article->text = preg_replace("|$match[0]|", addcslashes($output, '\\$'), $article->text, 1);
                 $style = $this->params->def('style', 'none');
             }
-
+            
+			/* move to function injectFiles()
             // finaly inject globals
             JFactory::getDocument()->addScriptDeclaration(
-                "var CTO_Globals = {}; CTO_Globals.lang='" . $this->lang . "'; CTO_Globals.base='" . JURI::base() . "';    "
-            );
+                "var CTO_Globals = {}; CTO_Globals.lang='" . $this->lang . "'; CTO_Globals.base='" . JURI::base() . "';  "
+            );*/
         }
 
 
@@ -164,19 +165,18 @@ class PlgContentLoadcto extends JPlugin
         if (is_object($config->tag)) {
             $tagName = $config->tag->name;
             $tag = $config->tag;
-
         } else {
-
             $tagName = $config->tag;
         }
+        
+        /*
+         * default tag value
+         * ... or in switch, then as default 
+         */
+        $html = $this->getTag($tagName);
+        
         JLog::add('Style : ' . $style, JLog::WARNING, 'loadcto');
         switch ($style) {
-
-            case 'none':
-            case 'embedded':
-                $html = $this->getTag($tagName);
-                break;
-
             case 'overlay':
                 jimport('joomla.html.html.bootstrap');
                 $modal_params = array();
@@ -232,8 +232,7 @@ class PlgContentLoadcto extends JPlugin
     {
         JLog::add('TagName: ' . $tagName, JLog::WARNING, 'loadcto');
 
-        switch ($tagName[0]) {
-
+        switch ($tagName{0}) {
             case '.' :
                 $tag = '<div class="' . substr($tagName, 1) . '"></div>';
                 break;
@@ -242,7 +241,6 @@ class PlgContentLoadcto extends JPlugin
                 break;
             default:
                 $tag = '<' . $tagName . '></' . $tagName . '>';
-
         }
 
         JLog::add('Used Tag: ' . $tag, JLog::WARNING, 'loadcto');
@@ -288,9 +286,15 @@ class PlgContentLoadcto extends JPlugin
 
         // inject inline initialization script if specified
 
-        if ($config->init)
-            $document->addScriptDeclaration(
-                $config->init
-            );
+        if ($config->init) {
+            $document->addScriptDeclaration($config->init);
+		}
+		
+		// finaly inject globals
+        $document->addScriptDeclaration(
+            "var CTO_Globals = {}; CTO_Globals.lang='" . $this->lang . "';
+             CTO_Globals.base='" . JURI::base() . "';  
+             CTO_Globals.appURL='" . JURI::base() . $appLocation . "'; "
+        );
     }
 }
