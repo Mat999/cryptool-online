@@ -1,0 +1,171 @@
+<div class="container-fluid">
+    <h2>{{ciphername}}</h2>
+    <div id='vertical_status' style='visibility: hidden;'>open</div>
+<form id='CTOCaesarForm1' name='CTOCaesarForm1' action='#'>
+<table>
+  <tbody>
+    <tr>
+      <td valign='top'>&nbsp;</td>
+      <td>
+       <div id='orgtxtdesc'>{{plaintext}}:</div>
+        <textarea name='orgtxt' id='orgtxt' class='ctoformcss-txtinput-style ctoformcss-default-input-size' cols='63' rows='5'
+                  onkeypress='var keyCode = event.keyCode ? event.keyCode : event.charCode ? event.charCode : event.which;
+                  CTOCaesarScripts.keyPress(keyCode, \"encode\");' onkeyup='CTOCaesarScripts.caesarCrypt(\"encode\");'
+                  wrap='physical'>{{default_text}}</textarea>
+      </td>
+      <td valign='left'>
+      	<div id='options' class='ctoformcss-default-options'>
+      		<table>
+      		<tr>
+      			<td></td><td></td>
+      		</tr>
+      		<tr>
+      			<td><label>
+                    <input name='code' type='radio' value='encode' checked='checked' onclick='CTOCaesarScripts.caesarCrypt(false)'/>
+                </label></td><td>{{encrypt}}</td>
+      		</tr>
+      		<tr>
+      			<td><label>
+                    <input type='radio' name='code' value='decode' onclick='CTOCaesarScripts.caesarCrypt(false)'/>
+                </label></td>
+                <td>{{decrypt}}</td>
+      		</tr>
+      		<tr>
+      			<td></td><td></td>
+      		</tr>
+      		</table>
+      	</div>
+      </td>
+    </tr>
+    <tr>
+      <td valign='top'>&nbsp;</td>
+      <td><div id='codtxtdesc'>{{ciphertext}}:</div>
+        <textarea name='codtxt' id='codtxt' class='ctoformcss-txtinput-style ctoformcss-default-input-size' cols='63' rows='5'
+                  onkeypress='var keyCode = event.keyCode ? event.keyCode : event.charCode ? event.charCode : event.which;
+                  CTOCaesarScripts.keyPress(keyCode, \"decode\");' onkeyup='CTOCaesarScripts.caesarCrypt(\"decode\");' wrap='physical'>{{default_text}}</textarea>
+      </td>
+      <td valign='left'>
+      	<div id='options2' class='ctoformcss-default-options'>
+      		<table>
+      		<tr>
+      			<td></td><td></td>
+      		</tr>
+      		<tr>
+      			<td><input name='casesensitiv' type='checkbox' checked='checked' id='casesensitiv'
+                           onclick='CTOCaesarScripts.caesarCrypt(false)'/></td>
+                <td>{{casesensitive}}</td>
+      		</tr>
+      		<tr>
+      			<td><input name='signs' type='checkbox' id='signs' checked='checked' onclick='CTOCaesarScripts.caesarCrypt(false)'/></td>
+                <td>{{signstext}}</td>
+      		</tr>
+      		<tr>
+      			<td><input type='checkbox' name='clean' id='clean' onclick='CTOCaesarScripts.caesarCrypt(false)'/></td>
+                <td>{{cleanspace}}</td>
+      		</tr>
+      		<tr>
+      			<td></td><td></td>
+      		</tr>
+      		</table>
+      	</div>
+
+      </td>
+    </tr>
+    <tr>
+      <td valign='top'>&nbsp;</td>
+      <td colspan='2'>
+
+      <div id='alphabet-options' class='ctoformcss-default-alphabet-options'>
+      			<table>
+      			<tr>
+      				<td><input name='uppercase' type='checkbox' id='uppercase' checked='checked' onclick='CTOCaesarScripts.setAlphabet(1);'/></td>
+                    <td>{{alpha_uppercase}}</td>
+      			</tr>
+      			<tr>
+      				<td><input name='blanks' type='checkbox' id='blanks' onclick='CTOCaesarScripts.setAlphabet(2);'/></td>
+                    <td>{{alpha_blanks}}</td>
+      			</tr>
+      			<tr>
+      				<td><input name='digits' type='checkbox' id='digits' onclick='CTOCaesarScripts.setAlphabet(3);'/></td>
+                    <td>{{alpha_digits}}</td>
+      			</tr>
+      			<tr>
+      				<td><input name='punctuationmarks' type='checkbox' id='punctuationmarks' onclick='CTOCaesarScripts.setAlphabet(4);'/></td>
+                    <td>{{alpha_puctuationmarks}}</td>
+      			</tr>
+      			<tr>
+      				<td><input name='lowercase' type='checkbox' checked='checked' id='lowercase' onclick='CTOCaesarScripts.setAlphabet(5);'/></td>
+                    <td>{{alpha_lowercase}}</td>
+      			</tr>
+      			<tr>
+      				<td><input name='umlauts' type='checkbox' id='umlauts' onclick='CTOCaesarScripts.setAlphabet(6);'/></td>
+                    <td>{{alpha_umlauts}}</td>
+      			</tr>
+      			</table>
+      	</div>
+
+
+      </td>
+    </tr>
+    <tr>
+      <td valign='top'>&nbsp;</td>
+      <td colspan='2'>{{plaintextabc}}&nbsp;
+        <input type='button' class='ctoformcss-default-button-l' name='v_toggle' id='v_toggle' value='{{alphabet}}'
+             onclick='CTOCaesarScripts.ChangeParseAlphabetText();'>&nbsp;
+        <input name='alphalength' type='text' class='ctoformcss-default-alphabet-length-output-style' id='alphalength'
+             size='1' maxlength='2' onkeyup='CTOCaesarScripts.checkKey();' readonly/>{{sings}}
+      </td>
+    </tr>
+    <tr>
+      <td valign='top'>&nbsp;</td>
+      <td colspan='2'>
+          <div id='plaintextabc' class='ctoformcss-txtsyncoutput-style ctoformcss-caesar-alphabet-output-size'>ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz</div>
+        </td>
+    </tr>
+    <tr>
+      <td valign='top'>&nbsp;</td>
+      <td colspan='2'>
+        <div id='ciphertextabc' class='ctoformcss-txtsyncoutput-style ctoformcss-caesar-alphabet-output-size'>ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz</div>
+      </td>
+    </tr>
+    <tr>
+      <td valign='top'>&nbsp;</td>
+      <td colspan='2'>{{ciphertextabc}}</td>
+    </tr>
+    <tr>
+      <td valign='top'>&nbsp;</td>
+      <td colspan='2'>
+
+      </td>
+    </tr>
+    <tr>
+      <td valign='top'>&nbsp;</td>
+      <td colspan='2'>{{key}}:</td>
+    </tr>
+    <tr>
+      <td valign='top'>&nbsp;</td>
+      <td colspan='2'>
+        <input type='button' class='ctoformcss-default-button-s' name='keyvalue' id='plus' value='+' onclick='CTOCaesarScripts.increaseKey()'/>
+        <input name='key' type='text' class='ctoformcss-txtinput' id='key' value='0' size='2' maxlength='2' onkeyup='CTOCaesarScripts.checkKey();'/>
+        <input type='button' class='ctoformcss-default-button-s' name='keyvalue' id='minus' value='-' onclick='CTOCaesarScripts.decreaseKey()'/>
+        <label><input name='rot13' type='checkbox' id='rot13' onclick='CTOCaesarScripts.setAlphabet(7);'/>Rot-13 {{alpha_uppercase}}</label>
+    </tr>
+    <tr>
+      <td valign='top'>&nbsp;</td>
+      <td colspan='2'>&nbsp;</td>
+    </tr>
+
+    <tr>
+      <td valign='top'></td>
+        <td colspan='2'>
+            <div class='mobilrun' id='mobilrun'>
+              <input type='button' class='ctoformcss-default-button-m' name='run' id='run' value='{{run}}'
+                     onclick='CTOCaesarScripts.caesarCrypt(false);'>
+            </div>
+        </td>
+    </tr>
+
+  </tbody>
+</table>
+</form>
+</div>

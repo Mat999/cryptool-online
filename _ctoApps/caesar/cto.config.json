@@ -1,0 +1,21 @@
+    {
+      "name" : "Caesar",
+
+      "styles" : ["caesar.css"],
+
+      "scripts": [
+        "../libs/jquery-3.1.1.min.js",
+        "../libs/handlebars-v4.0.5.js",
+        "../libs/ctolib.js",
+        {"file" : "../libs/appLoader.js", "type" : "text/javascript"},
+        {"file" : "caesar.js", "type" : "text/javascript"}
+      ],
+      
+      "tag": {
+        "name"      : "#ctoAlgo",
+        "btnText"   : "See in action",
+        "ovlTitle"  : "Caesar",
+        "ovlFooter" : "CrypTool Online"
+      }
+
+    }

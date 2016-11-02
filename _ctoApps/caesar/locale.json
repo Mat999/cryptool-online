@@ -1,0 +1,81 @@
+{
+  "de" : {
+    "ciphername": "Caesar-Chiffre / Rot-13",
+
+    "accept" : "&Uuml;bernehmen",
+    "alphabet" : "Schlüsselalphabet anpassen (an/aus)",
+    "alpha_uppercase" : "Großbuchstaben",
+    "alpha_blanks" : "Leerzeichen",
+    "alpha_digits" : "Ziffern",
+    "alpha_puctuationmarks" : "Satzzeichen",
+    "alpha_lowercase" : "Kleinbuchstaben",
+    "alpha_umlauts" : "Umlaute",
+
+    "casesensitive" : "Case-sensitive",
+    "cleanspace" : "Leerzeichen entfernen (5er Blöcke)",
+    "ciphertext" : "Geheimtext",
+    "ciphertextabc" : "Geheimtext-Alphabet",
+    "columns" : "Schlüssel vor der Sortierung in Zahlen<br>(Schlüssel nach der Sortierung als transpositionierte Zeichenkette):",
+
+    "encrypt" : "Verschlüsseln",
+
+    "decrypt" : "Entschlüsseln",
+    "default_text" : "Franz jagt im komplett verwahrlosten Taxi quer durch Bayern",
+
+    "key" : "Schlüssel",
+
+    "plaintext" : "Klartext",
+    "plaintextabc" : "Klartext-Alphabet",
+
+    "random_matrix" : "Zufallsmatrix",
+    "run" : "Caesar starten",
+
+    "sings" : "Zeichen",
+    "signstext" : "Nicht im Alphabet enthaltene Zeichen beibehalten",
+    "substitution" : "Substitution",
+    "substitution_matrix" : "Substitutionsmatrix",
+    "substitution_options" : "Substitutionseinstellungen (an/aus)",
+
+    "uppercase" : "COM_CTO_CAESAR_UPPERCASE"
+  },
+
+  "en" : {
+    "ciphername": "Caesar Chipher / Rot-13",
+
+    "accept" : "Accept",
+    "alphabet" : "Parse keyalphabet (on/off)",
+    "alpha_uppercase" : "Upper case",
+    "alpha_blanks" : "Blanks",
+    "alpha_digits" : "Digits",
+    "alpha_puctuationmarks" : "Punctuation marks",
+    "alpha_lowercase" : "Lower case",
+    "alpha_umlauts" : "Umlauts",
+
+    "casesensitive" : "Case-sensitive",
+    "cleanspace" : "Delete blanks (blocks of 5)",
+    "ciphertext" : "Ciphertext",
+    "ciphertextabc" : "Ciphertext-alphabet",
+    "columns" : "Key before the sort in numbers<br>(Key after the sort as transpositioned string):",
+
+    "encrypt" : "Encrypt",
+
+    "decrypt" : "Decrypt",
+    "default_text" : "The quick brown fox jumps over the lazy dog",
+
+    "key" : "Key",
+
+    "plaintext" : "Plaintext",
+    "plaintextabc" : "Plaintext-alphabet",
+
+    "random_matrix" : "Random matrix",
+    "run" : "Run caesar",
+
+    "sings" : "Signs",
+    "signstext" : "Ignore invalid signs<span class= \"ctoformcss-invalidtext-style\">!</span>",
+    "substitution" : "Substitution",
+    "substitution_matrix" : "Substitution matrix",
+    "substitution_options" : "Substitution options (on/off)",
+
+    "uppercase" : "COM_CTO_CAESAR_UPPERCASE"
+  }
+}
