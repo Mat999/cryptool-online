@@ -168,13 +168,7 @@ class PlgContentLoadcto extends JPlugin
         } else {
             $tagName = $config->tag;
         }
-        
-        /*
-         * default tag value
-         * ... or in switch, then as default 
-         */
-        $html = $this->getTag($tagName);
-        
+               
         JLog::add('Style : ' . $style, JLog::WARNING, 'loadcto');
         switch ($style) {
             case 'overlay':
@@ -191,8 +185,7 @@ class PlgContentLoadcto extends JPlugin
                     . '</a>';
 
                 $html = $this->getTag($tagName);
-                $html =  $lnk . JHTML::_('bootstrap.renderModal', 'modal' . $config->name, $modal_params, $html);
-
+                $html = $lnk . JHTML::_('bootstrap.renderModal', 'modal' . $config->name, $modal_params, $html);
                 break;
 
             case 'accordion':
@@ -209,8 +202,10 @@ class PlgContentLoadcto extends JPlugin
                     . JHtml::_('bootstrap.endTab')
                     . JHtml::_('bootstrap.endTabSet');
 
-                $html =  $accordion;
+                $html = $accordion;
                 break;
+                
+            default: $html = $this->getTag($tagName);
 
         }
         JLog::add('Used HTML: ' . $html, JLog::WARNING, 'loadcto');
